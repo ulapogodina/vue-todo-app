@@ -1,0 +1,44 @@
+<template>
+  <div class="task-item">
+    <header>
+      <div><b>{{ props.task.title }}</b></div>
+    </header>
+    
+    <main>
+      <div>{{ props.task.text }}</div>
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+interface ITask {
+  id: number;
+  title: string;
+  text: string;
+}
+
+const props = defineProps<{
+  task: ITask;
+}>();
+</script>
+
+<style scoped>
+.task-item {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.task-item header {
+  font-size: 18px;
+  color: #333;
+}
+
+.task-item main {
+  color: #666;
+}
+</style>
